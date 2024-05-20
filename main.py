@@ -8,9 +8,9 @@ import os
 
 #Taking voice from my system
 engine = pyttsx3.init("sapi5")
-voices = engine.getProperty("voices")
+voices = engine.getProperty("voice")
 #print(voices)
-engine.setProperty("voice", voices.id)
+engine.setProperty("voicecls", voices)
 engine.setProperty("rate", 150)
 
 # Speak function
@@ -22,8 +22,8 @@ def speak(text):
        text (_type_): string
    
    """
-engine.say(text)
-engine.runAndWait()
+   engine.say(text) 
+   engine.runAndWait()
 
 #speech recognization function
 def takeComand():
@@ -47,5 +47,6 @@ def takeComand():
         return query
     
 
-takeComand()
+text = takeComand()
+speak(text)
 
