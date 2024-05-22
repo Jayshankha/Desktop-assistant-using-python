@@ -10,7 +10,7 @@ import os
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voice")
 #print(voices)
-engine.setProperty("voicecls", voices)
+engine.setProperty("voice", voices)
 engine.setProperty("rate", 150)
 
 # Speak function
@@ -46,7 +46,19 @@ def takeComand():
             return "None"
         return query
     
+if __name__=="__main__":
+     query = takeComand().lower()
 
-text = takeComand()
-speak(text)
+     if "wikipedia" in query:
+         speak("Searching wikipedia")
+         query = query.replace("wikipedia", "")
+         results = wikipedia.summary(query, sentences = 2)
+         print("According to wikipedia")
+         print(results)
+         speak(results)
+     
+     elif "youtube" in query:
+         speak("opening youtube")
+         webbrowser.open("youtube.com")
+    
 
