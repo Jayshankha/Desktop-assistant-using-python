@@ -22,3 +22,5 @@ def main():
                               data=audio_bytes,
                               file_name="speech.mp3",
                               mime="audio/mp3")
+           
+main()
